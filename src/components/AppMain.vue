@@ -16,7 +16,7 @@ export default {
 <template>
     <div class="container d-flex justify-content-center">
         <div class="m-screen my-4 p-3 ">
-            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 gap-4 justify-content-center">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6  gap-4 justify-content-center">
                 <PokemonCard v-for="pokemon in store.pokemons" :key="pokemon._id" :pokemon="pokemon"></PokemonCard>
             </div>
         </div>

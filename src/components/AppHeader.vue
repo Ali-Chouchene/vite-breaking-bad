@@ -7,10 +7,10 @@ export default {
 
 <template>
     <header>
-        <div class="h-title d-flex justify-content-between">
-            <img class="ball" src="../assets/img/pokebal.png" alt="">
+        <div class="h-title container d-flex justify-content-around">
+            <img class="ball d-none d-md-block" src="../assets/img/pokebal.png" alt="">
             <img src="../assets/img/title.png" alt="">
-            <img class="ball" src="../assets/img/pokebal.png" alt="">
+            <img class="ball d-none d-md-block" src="../assets/img/pokebal.png" alt="">
         </div>
     </header>
 </template>
