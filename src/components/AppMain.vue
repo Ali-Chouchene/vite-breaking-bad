@@ -1,27 +1,37 @@
 <script >
+import { store } from '../../src/data/store'
+import PokemonCard from './PokemonCard.vue'
 export default {
     name: 'AppMain',
+    components: { PokemonCard },
+    data() {
+
+
+        return { store }
+    },
 }
 
 </script>
 
 <template>
     <div class="container d-flex justify-content-center">
-        <div class="screen my-4">
-            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-
+        <div class="m-screen my-4 p-3 ">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 gap-4 justify-content-center">
+                <PokemonCard v-for="pokemon in store.pokemons" :key="pokemon._id" :pokemon="pokemon"></PokemonCard>
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.screen {
+.m-screen {
     height: 72vh;
     width: 100%;
     background-color: black;
     border: 15px solid gainsboro;
     border-radius: 10px;
+    overflow-y: auto;
 
+    .row {}
 }
 </style>
