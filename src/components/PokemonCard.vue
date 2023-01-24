@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <div class="col p-4 text-center my-2" :class=pokemon.color>
+    <div class="col p-3 text-center my-2" :class=pokemon.color>
         <img :src="pokemon.imageUrl" :alt="pokemon.name">
         <h6 class="pt-3 text-secondary">#{{ pokemon.number }}</h6>
         <h4 class=" py-2">{{ pokemon.name }}</h4>
@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 .col {
 
-    height: 330px;
+    height: 300px;
     border-radius: 15px;
 
     &.Blue {
@@ -45,11 +45,31 @@ export default {
         background-color: rgb(92, 29, 92);
     }
 
+    &.Yellow {
+        background-color: rgb(131, 131, 87);
+    }
+
+    &.White {
+        background-color: rgb(202, 191, 191);
+    }
+
+    &.Brown {
+        background-color: rgba(163, 57, 15, 0.801);
+    }
+
+    &.Grey {
+        background-color: grey;
+    }
+
+    &.Black {
+        background-color: rgba(22, 26, 26, 0.795);
+    }
+
 }
 
 img {
-    height: 170px;
-    width: 170px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     object-fit: fill;
 

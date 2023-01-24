@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-    <div class="container d-flex justify-content-center">
-        <div class="m-screen my-4 p-3 ">
+    <div class="container d-flex justify-content-center flex-column ">
+        <div class="m-screen my-5 p-3 ">
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6  gap-4 justify-content-center">
                 <PokemonCard v-for="pokemon in store.pokemons" :key="pokemon._id" :pokemon="pokemon"></PokemonCard>
             </div>
@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .m-screen {
-    height: 72vh;
+    height: 70vh;
     width: 100%;
     background-color: black;
     border: 15px solid gainsboro;

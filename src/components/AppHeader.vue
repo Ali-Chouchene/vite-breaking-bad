@@ -7,7 +7,7 @@ export default {
 
 <template>
     <header>
-        <div class="h-title container d-flex justify-content-around">
+        <div class="h-title container d-flex justify-content-around mb-3">
             <img class="ball d-none d-md-block" src="../assets/img/pokebal.png" alt="">
             <img src="../assets/img/title.png" alt="">
             <img class="ball d-none d-md-block" src="../assets/img/pokebal.png" alt="">
@@ -17,14 +17,14 @@ export default {
 
 <style lang="scss" scoped>
 .h-title {
-    height: 200px;
+    height: 150px;
 
     img {
         display: block;
         aspect-ratio: 3/2;
         object-fit: contain;
         margin: 0;
-        height: 200px;
+        height: 150px;
         width: 400px;
     }
 

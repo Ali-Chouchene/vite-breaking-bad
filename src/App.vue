@@ -16,8 +16,9 @@ export default {
         .then(res => {
           store.pokemons = res.data.docs;
         })
-    }
+    },
   },
+
   created() {
     this.fetchPokemons(store.apiUri);
   }
