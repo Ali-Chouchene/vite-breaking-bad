@@ -12,7 +12,10 @@ export default {
   data() {
     return {
       store,
-      apiUri: 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=',
+      allUri: '?per=30&page=',
+      filterUri: 'eq[type1]=',
+      filtered: false,
+      apiUri: 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons',
     }
   },
   methods: {
@@ -23,11 +26,11 @@ export default {
         })
     },
     nextPage() {
-      if (store.n === 105) {
+      if (store.n === 35) {
         return
       } else {
         ++store.n
-        this.fetchPokemons(this.apiUri + store.n);
+        this.fetchPokemons(this.apiUri + this.allUri + store.n);
       }
 
     },
@@ -36,7 +39,21 @@ export default {
         return
       } else {
         --store.n
-        this.fetchPokemons(this.apiUri + store.n);
+        this.fetchPokemons(this.apiUri + this.allUri + store.n);
+      }
+
+
+    },
+    filterApi(term) {
+      if (term === 'all') {
+        this.filtered = false;
+        store.n = 1
+        this.fetchPokemons(this.apiUri + this.allUri + store.n);
+      }
+      else {
+        this.filtered = true;
+        const url = `${this.apiUri}${'?per=100&'}${this.filterUri}${term}`
+        this.fetchPokemons(url);
       }
 
 
@@ -44,7 +61,7 @@ export default {
 
   },
   mounted() {
-    this.fetchPokemons(this.apiUri + store.n);
+    this.fetchPokemons(this.apiUri + this.allUri + store.n);
   }
 }
 
@@ -55,11 +72,13 @@ export default {
 
   <body class="bg-danger vh-100">
     <AppHeader />
-    <AppMain>
+    <AppMain @current-option="filterApi">
       <nav class="d-flex justify-content-center mt-3 ">
         <ul class="pagination">
-          <li class="page-item"><a @click="prevPage" class="page-link">Previous</a></li>
-          <li class="page-item"><a @click="nextPage" class="page-link">Next</a></li>
+          <li :class="filtered === true ? 'disabled' : ''" class="page-item"><a @click="prevPage"
+              class="page-link">Previous</a></li>
+          <li :class="filtered === true ? 'disabled' : ''" class="page-item"><a @click="nextPage"
+              class="page-link">Next</a></li>
         </ul>
       </nav>
     </AppMain>

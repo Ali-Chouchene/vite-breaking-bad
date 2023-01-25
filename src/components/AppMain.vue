@@ -1,19 +1,22 @@
 <script >
 import { store } from '../../src/data/store'
 import PokemonCard from './PokemonCard.vue'
+import SelectOptions from './SelectOptions.vue'
+
 export default {
     name: 'AppMain',
-    components: { PokemonCard },
+    components: { PokemonCard, SelectOptions },
     data() {
 
         return {
             store,
-            n: 1,
-
         }
     },
     methods: {
+        passChange(type) {
+            this.$emit('current-option', type)
 
+        }
     }
 }
 
@@ -21,8 +24,10 @@ export default {
 
 <template>
     <div class="background">
-        <div class="container d-flex justify-content-center flex-column ">
+
+        <div class="container d-flex justify-content-center align-items-center flex-column ">
             <slot></slot>
+            <select-options @option-change="passChange"></select-options>
             <div class="m-screen my-4 p-3 ">
                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6  gap-4 justify-content-center">
                     <PokemonCard v-for="pokemon in store.pokemons" :key="pokemon._id" :pokemon="pokemon"></PokemonCard>
@@ -45,7 +50,7 @@ export default {
 }
 
 .m-screen {
-    height: 70vh;
+    height: 63vh;
     width: 100%;
     background-color: black;
     border: 15px solid rgb(220, 53, 69);
